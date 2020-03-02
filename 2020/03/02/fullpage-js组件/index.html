@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://yq8023.github.io/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/6.png">
 <meta property="og:image" content="http://yq8023.github.io/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/1.gif">
 <meta property="article:published_time" content="2020-03-02T00:51:28.000Z">
-<meta property="article:modified_time" content="2020-03-02T03:58:41.817Z">
+<meta property="article:modified_time" content="2020-03-02T06:52:47.574Z">
 <meta property="article:author" content="杨清">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -295,10 +295,10 @@
 <p><img src="/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/6.png" alt="fullpage-js组件"></p>
 <p>我们可以发现，在fp-slidesContainer层有两个div与其同级，分别是fp-controlArrow fp-prev与fp-controlArrow fp-next。根据字面意思，我们可以知道这是控制切换上一分屏和下一分屏的地方。这里面可以插入fonticon图标，也可以直接用css设置一个边框按钮来切换，这里就简采用css来画一个切换按钮。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*清除全部默认外边距和内边距*/</span></span><br><span class="line">*&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*设置最外层容器相对定位*/</span></span><br><span class="line"><span class="selector-class">.fp-section</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*设置slides高度占全屏*/</span></span><br><span class="line"><span class="selector-class">.fp-slides</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="comment">/*开启父内容的相对定位*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease-out;<span class="comment">/*添加过度动画*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*设置slidesContainer和每一张slide高度都占全屏*/</span></span><br><span class="line"><span class="selector-class">.fp-slidesContainer</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="comment">/*开启子内容的绝对定位*/</span></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fp-slide</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*设置两边转换按钮*/</span></span><br><span class="line"><span class="selector-class">.fp-controlArrow</span> &#123;</span><br><span class="line">    <span class="comment">/*开启子内容的绝对定位*/</span></span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">38px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fp-controlArrow</span><span class="selector-class">.fp-prev</span> &#123;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">23.5px</span> <span class="number">20px</span> <span class="number">23.5px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: transparent <span class="built_in">rgb</span>(<span class="number">61</span>, <span class="number">58</span>, <span class="number">58</span>) transparent transparent;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fp-controlArrow</span><span class="selector-class">.fp-next</span> &#123;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">23.5px</span> <span class="number">0</span> <span class="number">23.5px</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: transparent transparent transparent <span class="built_in">rgb</span>(<span class="number">61</span>, <span class="number">58</span>, <span class="number">58</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里提一下css画三角形的小技巧，你三角形尖的那个角对应哪个方向就将哪个方向的边框设置成0，对应反正的边框颜色设为你想要的边框色，具体看上面代码。</p>
+<p>这里提一下css画三角形的小技巧，你三角形尖的那个角对应哪个方向就将哪个方向的边框设置成0，尖角对应的反方向设置你想要的边框颜色，具体看上面代码。</p>
 <p>下面来看一下完成后的效果：</p>
 <p><img src="/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/1.gif" alt="fullpage-js组件"></p>
-<p>以上就是fullpage.js基础的使用了，下期讲一下回调函数以及绑定菜单的使法。</p>
+<p>以上就是fullpage.js基础的使用了，下期讲一下回调函数以及绑定菜单的基本使用方法。</p>
 
     
 
@@ -437,6 +437,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/03/02/fullpage-js%E6%8F%92%E4%BB%B6%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          fullpage.js插件（二）
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/28/%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
