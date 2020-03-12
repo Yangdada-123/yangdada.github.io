@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yq8023.github.io">
-  <title>Archives: 2020/3 | 杨大大的个人博客主页</title>
+  <title>轮播图 | 杨大大的个人博客主页</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="杨大大的个人博客主页">
-<meta property="og:url" content="http://yq8023.github.io/archives/2020/03/index.html">
+  <meta name="description" content="今天还是一期作业的完成—-&gt;【轮播图】大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。三个功能互不冲突，独立工作。大致界面：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轮播图">
+<meta property="og:url" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html">
 <meta property="og:site_name" content="杨大大的个人博客主页">
+<meta property="og:description" content="今天还是一期作业的完成—-&gt;【轮播图】大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。三个功能互不冲突，独立工作。大致界面：">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png">
+<meta property="og:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/1.png">
+<meta property="article:published_time" content="2020-03-12T07:21:38.000Z">
+<meta property="article:modified_time" content="2020-03-12T08:09:02.895Z">
 <meta property="article:author" content="杨清">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png">
   
     <link rel="alternative" href="/atom.xml" title="杨大大的个人博客主页" type="application/atom+xml">
   
@@ -182,41 +190,134 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-轮播图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      轮播图
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" class="archive-article-date">
         <time datetime="2020-03-12T07:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">783字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今天还是一期作业的完成—-&gt;【轮播图】<br>大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。<br>三个功能互不冲突，独立工作。<br>大致界面：<br><img src="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png" alt="轮播图"></p>
+<a id="more"></a>
+<p>实现思路：</p>
+<p>最基础的轮播图原理就不多讲了，直接讲下三大功能的实现思路：</p>
+<ul>
+<li>使用setInterval()与clearInterval()两个函数实现自动轮播</li>
+<li>左右切换的功能则可以使用style.left属性来获取当前迁移量，然后根据左还是右增加或者减少偏移量（这里遇到的一个坑就是使用style.left获取属性一定要将letf设置为内联样式或者在js中有过定义，定义在css文件中的left属性js是获取不到的。）</li>
+<li>最后就是底部圆点切换图片，这只需要获取圆点值，然后直接设置left属性就行了，比较简单。</li>
+</ul>
+<p>当上面全部完成后会发现一个新问题，如果你是采用transtion属性进行过渡，那么从最后一张到第一张会有一个往前翻的效果，我们一般为了美观，希望到了最后一张下一张跳到了第一张，但仍然还是往下翻的效果，这里我采用的是将图片前后多复制两张，第一张前面加上最后一张的图片，最后一张后面加上第一张的图片。如下展示：<br><img src="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/1.png" alt="轮播图"><br>这么一来，当我们从5.jpg（看起来的最后一张，实则倒数第二张）往后轮播到1.jpg时，可以让用户感觉是到了第一张的效果，当然，与此同时，我们需要在这中间做点小技巧，使用setTimeout()函数，设置一个延时执行的效果，在这个函数中，我们设置transition为null（切换为null消除切换特效），并且切换下一张图片，这么一来，我们就偷偷的在轮播的时候多往后播放了一张，但是这还是不够的，因为我们在1.jpg前面多增加了一张5.jpg，所以我们需要将setTimeOut函数的执行时间是轮播图时间的一半，使其偷偷轮播两张图。这么一来，我们就实现了偷天换日的效果了，哈哈。<br>让用户看完从最后5.jpg到1.jpg的轮播效果时，我们已经偷偷转换成正数的1.jpg了，又开始了新的一轮轮播，完美过渡。</p>
+<p>最后再完善一些小细节，比如三者工作时互不干扰啊（点击按钮或者左右切换时把定时器关了就行，执行完后右开启），还有底部按钮当前显示高亮啊（轮播到那张图在相应的按钮添加一个active类就行）。</p>
+<p>以上就是整体的实现思路，以及我遇到的一些问题了，本来想展示一下的，可是好像录屏录出来效果太差，就不展示了。有兴趣的可以下载源码看看：<br><a href="https://github.com/yq8023/SlideImages" target="_blank" rel="noopener">https://github.com/yq8023/SlideImages</a></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zhifubao-pay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin-pay.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" target="_blank">轮播图</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          杨清
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yq8023.github.io/2020/03/12/轮播图/" title="轮播图" target="_blank">http://yq8023.github.io/2020/03/12/轮播图/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,191 +329,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/06/css%E4%BD%BF%E7%94%A8text-shadow%E8%AE%BE%E7%BD%AE%E7%82%AB%E9%85%B7%E5%AD%97%E4%BD%93/" class="archive-article-date">
-        <time datetime="2020-03-06T02:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/06/css%E4%BD%BF%E7%94%A8text-shadow%E8%AE%BE%E7%BD%AE%E7%82%AB%E9%85%B7%E5%AD%97%E4%BD%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css使用text-shadow设置炫酷字体</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/06/css%E4%BD%BF%E7%94%A8text-shadow%E8%AE%BE%E7%BD%AE%E7%82%AB%E9%85%B7%E5%AD%97%E4%BD%93/" target="_blank">css使用text-shadow设置炫酷字体</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/03/Servlet%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/" class="archive-article-date">
-        <time datetime="2020-03-03T07:17:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/03/Servlet%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/" target="_blank">关于Servlet的一些东西（一）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/02/fullpage-js%E6%8F%92%E4%BB%B6%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-        <time datetime="2020-03-02T07:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/02/fullpage-js%E6%8F%92%E4%BB%B6%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank">fullpage.js插件（二）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/" class="archive-article-date">
-        <time datetime="2020-03-02T00:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/02/fullpage-js%E7%BB%84%E4%BB%B6/" target="_blank">fullpage.js插件（一）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 
           </div>
@@ -453,8 +470,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
