@@ -6,25 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yq8023.github.io">
-  <title>轮播图 | 杨大大的个人博客主页</title>
+  <title>设计模式--代理模式 | 杨大大的个人博客主页</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="今天还是一期作业的完成—-&gt;【轮播图】大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。三个功能互不冲突，独立工作。大致界面：">
+  <meta name="description" content="最近发现了一个新东西：动态代理。然而自己并不懂，不懂怎么办，百度问度娘，看了一圈解释。最后发现这篇博客写的最符合自己胃口，转载一下，以后忘记了可以在看看。 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;20794107&#x2F;answer&#x2F;811250346">
 <meta property="og:type" content="article">
-<meta property="og:title" content="轮播图">
-<meta property="og:url" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html">
+<meta property="og:title" content="设计模式--代理模式">
+<meta property="og:url" content="http://yq8023.github.io/2020/03/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="杨大大的个人博客主页">
-<meta property="og:description" content="今天还是一期作业的完成—-&gt;【轮播图】大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。三个功能互不冲突，独立工作。大致界面：">
+<meta property="og:description" content="最近发现了一个新东西：动态代理。然而自己并不懂，不懂怎么办，百度问度娘，看了一圈解释。最后发现这篇博客写的最符合自己胃口，转载一下，以后忘记了可以在看看。 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;20794107&#x2F;answer&#x2F;811250346">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png">
-<meta property="og:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/1.png">
-<meta property="article:published_time" content="2020-03-12T07:21:38.000Z">
-<meta property="article:modified_time" content="2020-03-12T08:09:02.895Z">
+<meta property="article:published_time" content="2020-03-15T06:32:51.000Z">
+<meta property="article:modified_time" content="2020-03-15T14:49:50.758Z">
 <meta property="article:author" content="杨清">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png">
   
     <link rel="alternative" href="/atom.xml" title="杨大大的个人博客主页" type="application/atom+xml">
   
@@ -190,14 +187,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-轮播图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设计模式-代理模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      轮播图
+      设计模式--代理模式
     </h1>
   
 
@@ -209,8 +206,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" class="archive-article-date">
-        <time datetime="2020-03-12T07:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
+<a href="/2020/03/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-03-15T06:32:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
 </a>
 
   
@@ -223,7 +220,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">783字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -232,7 +229,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -243,18 +240,45 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>今天还是一期作业的完成—-&gt;【轮播图】<br>大致功能：正常自动轮播，有左右切换轮播图按钮，底部有原点按钮切换图片。<br>三个功能互不冲突，独立工作。<br>大致界面：<br><img src="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/2.png" alt="轮播图"></p>
+    <p>最近发现了一个新东西：动态代理。然而自己并不懂，不懂怎么办，百度问度娘，看了一圈解释。最后发现这篇博客写的最符合自己胃口，转载一下，以后忘记了可以在看看。</p>
+<p><a href="https://www.zhihu.com/question/20794107/answer/811250346" target="_blank" rel="noopener">https://www.zhihu.com/question/20794107/answer/811250346</a></p>
 <a id="more"></a>
-<p>实现思路：</p>
-<p>最基础的轮播图原理就不多讲了，直接讲下三大功能的实现思路：</p>
-<ul>
-<li>使用setInterval()与clearInterval()两个函数实现自动轮播</li>
-<li>左右切换的功能则可以使用style.left属性来获取当前迁移量，然后根据左还是右增加或者减少偏移量（这里遇到的一个坑就是使用style.left获取属性一定要将letf设置为内联样式或者在js中有过定义，定义在css文件中的left属性js是获取不到的。）</li>
-<li>最后就是底部圆点切换图片，这只需要获取圆点值，然后直接设置left属性就行了，比较简单。</li>
-</ul>
-<p>当上面全部完成后会发现一个新问题，如果你是采用transtion属性进行过渡，那么从最后一张到第一张会有一个往前翻的效果，我们一般为了美观，希望到了最后一张下一张跳到了第一张，但仍然还是往下翻的效果，这里我采用的是将图片前后多复制两张，第一张前面加上最后一张的图片，最后一张后面加上第一张的图片。如下展示：<br><img src="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/1.png" alt="轮播图"><br>这么一来，当我们从5.jpg（看起来的最后一张，实则倒数第二张）往后轮播到1.jpg时，可以让用户感觉是到了第一张的效果，当然，与此同时，我们需要在这中间做点小技巧，使用setTimeout()函数，设置一个延时执行的效果，在这个函数中，我们设置transition为null（切换为null消除切换特效），并且切换下一张图片，这么一来，我们就偷偷的在轮播的时候多往后播放了一张，但是这还是不够的，因为我们在1.jpg前面多增加了一张5.jpg，所以我们需要将setTimeOut函数的执行时间是轮播图时间的一半，使其偷偷轮播两张图。这么一来，我们就实现了偷天换日的效果了，哈哈。<br>让用户看完从最后5.jpg到1.jpg的轮播效果时，我们已经偷偷转换成正数的1.jpg了，又开始了新的一轮轮播，完美过渡。</p>
-<p>最后再完善一些小细节，比如三者工作时互不干扰啊（点击按钮或者左右切换时把定时器关了就行，执行完后右开启），还有底部按钮当前显示高亮啊（轮播到那张图在相应的按钮添加一个active类就行）。</p>
-<p>以上就是整体的实现思路，以及我遇到的一些问题了，本来想展示一下的，可是好像录屏录出来效果太差，就不展示了。有兴趣的可以下载源码看看：<br><a href="https://github.com/yq8023/SlideImages" target="_blank" rel="noopener">https://github.com/yq8023/SlideImages</a></p>
+<h3 id="什么是代理模式？"><a href="#什么是代理模式？" class="headerlink" title="什么是代理模式？"></a>什么是代理模式？</h3><p>有一个打印机的类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Printer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"打印！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我想在打印之前先记录一下日志怎么做？最简单的方法：在打印的功能前面直接加上记录日志的功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Printer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"记录日志！"</span>);</span><br><span class="line">        System.out.println(<span class="string">"打印！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看上去好像没有问题，但是我们修改了打印机的源代码，破坏了面向对象的开闭原则，有可能影响到其它功能。怎么解决呢？很容易可以想到，既然不能修改原来的代码，那我新建一个类吧。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogPrinter</span> <span class="keyword">extends</span> <span class="title">Printer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"记录日志！"</span>);</span><br><span class="line">        System.out.println(<span class="string">"打印！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个类继承了打印机的类，重写了打印机的print方法，提供了记录日志的功能，以后需要打印机的时候使用这个类就好。问题似乎得到了解决，我们可以在这个解决方案的基础上进一步的优化：先抽象出一个接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IPrinter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打印机类实现这个接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Printer</span> <span class="keyword">implements</span> <span class="title">IPrinter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"打印！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建打印机代理类也实现该接口，在构造函数中将打印机对象传进去，实现接口的打印方法时调用打印机对象的打印方法并在前面加上记录日志的功能:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrinterProxy</span> <span class="keyword">implements</span> <span class="title">IPrinter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IPrinter printer;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PrinterProxy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.printer = <span class="keyword">new</span> printer();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"记录日志"</span>);</span><br><span class="line">        printer.print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>试一把吧：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PrinterProxy proxy = <span class="keyword">new</span> PrinterProxy();</span><br><span class="line">        proxy.print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果出来了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">记录日志</span><br><span class="line">打印</span><br></pre></td></tr></table></figure>
+<p>以后我们就可以直接实例化PrinterProxy对象调用它的打印方法了，这就是静态代理模式，通过抽象出接口让程序的扩展性和灵活性更高了。<br>静态代理是完美无缺的吗？考虑一下，如果我的打印机类中还有别的方法，也需要加上记录日志的功能，就不得不将记录日志的功能写n遍。进一步如果我还有电视机，电冰箱的类里面的所有方法也需要加上记录日志的功能，那要重复的地方就更多了。怎么办？</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理闪亮登场：要想不重复写记录日志的功能，针对每一个接口实现一个代理类的做法肯定不可行了，可不可以让这些代理类的对象自动生成呢？<br>Jdk提供了invocationHandler接口和Proxy类，借助这两个工具可以达到我们想要的效果。invocationHandler接口上场：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Object proxy:被代理的对象 </span></span><br><span class="line"><span class="comment">//Method method:要调用的方法 </span></span><br><span class="line"><span class="comment">//Object[] args:方法调用时所需要参数 </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口里只有一个方法invoke，这个方法非常重要，先混个脸熟，稍后解释。<br>Proxy类上场，它里面有一个很重要的方法 newProxyInstance：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CLassLoader loader:被代理对象的类加载器 </span></span><br><span class="line"><span class="comment">//Class&lt;?&gt; interfaces:被代理类全部的接口 </span></span><br><span class="line"><span class="comment">//InvocationHandler h:实现InvocationHandler接口的对象 </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</span> <span class="keyword">throws</span> IllegalArgumentException</span></span><br></pre></td></tr></table></figure>
+<p>调用Proxy的newProxyInstance方法可以生成代理对象一切准备就绪<br>动态代理模式千呼万唤始出来：接口IPrinter 和 该接口的实现类 Printer的代码同时。<br>实现一个类，该类用来创建代理对象，它实现了InvocationHandler接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object targetObject;<span class="comment">//被代理的对象</span></span><br><span class="line">    <span class="comment">//将被代理的对象传入获得它的类加载器和实现接口作为Proxy.newProxyInstance方法的参数。</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">newProxyInstance</span><span class="params">(Object targetObject)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetObject = targetObject;</span><br><span class="line">        <span class="comment">//targetObject.getClass().getClassLoader()：被代理对象的类加载器</span></span><br><span class="line">        <span class="comment">//targetObject.getClass().getInterfaces()：被代理对象的实现接口</span></span><br><span class="line">        <span class="comment">//this 当前对象，该对象实现了InvocationHandler接口所以有invoke方法，通过invoke方法可以调用被代理对象的方法</span></span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),targetObject.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//该方法在代理对象调用方法时调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"记录日志"</span>);</span><br><span class="line">        <span class="keyword">return</span> method.invoke(targetObject,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>被代理的对象targetObject可以通过方法参数传进来：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">newProxyInstance</span><span class="params">(Object targetObject)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.targetObject=targetObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们重点来分析一下这段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),targetObject.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<p>动态代理对象就是通过调用这段代码被创建并返回的。<br>方法有三个参数：<br>第一个参数:targetObject.getClass().getClassLoader()：targetObject对象的类加载器。<br>第二个参数:targetObject.getClass().getInterfaces()：targetObject对象的所有接口<br>第三个参数:this：也就是当前对象即实现了InvocationHandler接口的类的对象，在调用方法时会调用它的invoke方法。<br>再来看一下这段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    <span class="comment">//在这里可以通过判断方法名来决定执行什么功能</span></span><br><span class="line">    System.out.println(<span class="string">"记录日志"</span>);</span><br><span class="line">    <span class="comment">//调用被代理对象的方法</span></span><br><span class="line">    <span class="keyword">return</span> method.invoke(targetObject, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法就是生成的代理类中的方法被调用时会去自动调用的方法，可以看到在这个方法中调用了被代理对象的方法: method.invoke(targetObject, args);<br>我们可以在这里加上需要的业务逻辑，比如调用方法前记录日志功能.见证奇迹的时刻到了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        ProxyHandler proxyHandler=<span class="keyword">new</span> ProxyHandler();</span><br><span class="line">        IPrinter printer=(IPrinter) proxyHandler.newProxyInstance(<span class="keyword">new</span> Printer());</span><br><span class="line">        printer.print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打印结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">记录日志</span><br><span class="line">打印</span><br></pre></td></tr></table></figure>
+<p>当执行printer.print();时会自动调用invoke方法，很多初学者不理解为什么能调用这个方法，回忆一下创建代理对象的时候是通过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),targetObject.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<p>来创建的，方法的第三个参数this是实现了 InvocationHandler 接口的对象， InvocationHandler 接口有invoke方法。现在有点思路了吧~将被代理的对象作为参数传入就可以执行里面的任意方法，所有的方法调用都通过invoke来完成。不用对每个方法进行处理，动态代理是不是很简洁。</p>
 
     
 
@@ -301,7 +325,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yq8023.github.io/2020/03/12/轮播图/" title="轮播图" target="_blank">http://yq8023.github.io/2020/03/12/轮播图/</a>
+          <a href="http://yq8023.github.io/2020/03/15/设计模式-代理模式/" title="设计模式--代理模式" target="_blank">http://yq8023.github.io/2020/03/15/设计模式-代理模式/</a>
         </li>
         
         <li>
@@ -323,7 +347,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -379,7 +403,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yq8023.github.io/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yq8023.github.io/2020/03/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -394,18 +418,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/03/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          设计模式--代理模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/06/css%E4%BD%BF%E7%94%A8text-shadow%E8%AE%BE%E7%BD%AE%E7%82%AB%E9%85%B7%E5%AD%97%E4%BD%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">css使用text-shadow设置炫酷字体</div>
+    <a href="/2020/03/12/%E8%BD%AE%E6%92%AD%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">轮播图</div>
       <i class="icon-circle-right"></i>
     </a>
   
