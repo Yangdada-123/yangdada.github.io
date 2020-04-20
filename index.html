@@ -189,6 +189,141 @@
             
 
   
+    <article id="post-乱码问题的解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/20/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" target="_blank">乱码问题的解决</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/20/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" class="archive-article-date">
+        <time datetime="2020-04-20T08:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>突然想起有一段时间没更新，这次就来总结一下javaWeb中经常出现的乱码问题。</p>
+<p>首先，乱码可分为两大类，一类是请求乱码，一类是相应乱码。那么下面我们分别对两种情况进行举例以及解决。</p>
+<hr>
+<p>一、请求乱码（浏览器发送给服务器的数据，服务器收到解析出来乱码）<br>请求乱码可细分为两种情况:    </p>
+<ul>
+<li><p>GET请求乱码：</p>
+</li>
+<li><p>情景：<br>  假设我现在在浏览器中发送一个get请求，请求携带一个中文参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost:8080/Test/login?username="张三"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>首先为什么会乱码呢？我们先来探究其乱码的原因</p>
+<ul>
+<li><p>原因：<br>  因为Tomcat服务器默认的编码格式是ISO-8859-1，而浏览器给服务器发送的是UTF-8的数据，后台接受后自然会产生乱码现象，所以我们从原理上我们来处理这种乱码可以先将接受的数据先使用ISO-8859-1的编码格式解码，然后再转换成UTF-8的编码形式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String username = request.getParamter(<span class="string">"username"</span>);</span><br><span class="line">username = <span class="keyword">new</span> String(username.getBytes(<span class="string">"ISO-8859-1"</span>,<span class="string">"UTF-8"</span>));</span><br></pre></td></tr></table></figure>
+<p>但是这只是解决的原理，那我们设想一下，如果请求uri中携带了一堆的中文参数，难道我们还要一个一个进行编码编码吗，显然是不可取的。</p>
+</li>
+<li><p>解决：<br>我们自然而然的会想到去修改Tomcat的配置文件。来到tomcat中server.xml配置文件，在端口8080处前面加上一句话，URIEncoding=”UTF-8”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector URIEncoding=<span class="string">"UTF-8"</span> connectionTimeout=<span class="string">"20000"</span> port=<span class="string">"8080"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>这么一来，以后的所有GET请求乱码都与你无关了</p>
+</li>
+</ul>
+<ul>
+<li><p>POST请求乱码：</p>
+</li>
+<li><p>情景：<br>  假设我有一个登录表单，发送的是post请求，用户默认提交用户名为张三。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"张三"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>原因：<br>  请求带来的数据都在请求体中放着，tomcat不会立马解析请求体，当你调用request.getParamter(“username”)的时候，tomcat会将整个请求体使用的默认编码格式全部解析完成。</p>
+</li>
+<li><p>解决方法：</p>
+<p>  我们可以在tomcat解析请求参数之前，设置tomcat使用utf-8来进行解码。所以我们可以在获取请求参数之前加上（一般加在doPost方法下的第一句话）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>二、响应乱码（服务器发给浏览器的数据，浏览器收到解析乱码）</p>
+<ul>
+<li>原因：<br>  服务器直接写出去的数据，浏览器并不知道内容的数据类型以及编码格式，所以浏览器会使用默认的格式打开，根据不同浏览器，打来的格式也不同</li>
+<li>解决办法：<br>  给浏览器数据之前就告诉浏览器这是什么数据类型<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setContextType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure>
+而我们目前看的比较多的是在jsp页面中添加一个<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html;charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br></pre></td></tr></table></figure>
+这里的contentType=”text/html;charset=UTF-8”就相当于上面的response.setContextType(“text/html;charset=utf-8”);后面的pageEncoding是设置该jsp文件本身的编码格式。</li>
+</ul>
+<p>最后总结一下以上两点吧，在写一个web项目的时候，做以下几个步骤，字符编码的问题就再也和你没有关系了，从此远离乱码问题，走向秃头之路。</p>
+<p>1.在tomcat的server.xml文件中8080端口处添加URIEncoding=”UTF-8”<br>2.在每次写dopost方法时，第一句先写上request.setCharacterEncoding(“utf-8”);<br>3.在jsp文件@page添加contentType=”text/html;charset=UTF-8” </p>
+<p>当然，第二步可以使用filter过滤器来做，设置字符编码过滤器，这里就不往下继续讲解了。但第三步不太推荐添加进过滤器中，因为你服务器返回的数据类型万一哪天是个img文件之类的东西，就不太方便修改了。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/20/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式-代理模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1005,95 +1140,6 @@
 
 
   
-    <article id="post-before，after的小妙用（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/17/before%EF%BC%8Cafter%E7%9A%84%E5%B0%8F%E5%A6%99%E7%94%A8%EF%BC%881%EF%BC%89/" target="_blank">before，after的小妙用（1）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/17/before%EF%BC%8Cafter%E7%9A%84%E5%B0%8F%E5%A6%99%E7%94%A8%EF%BC%881%EF%BC%89/" class="archive-article-date">
-        <time datetime="2020-02-17T12:06:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="利用before，after实现加载动画按钮"><a href="#利用before，after实现加载动画按钮" class="headerlink" title="利用before，after实现加载动画按钮"></a>利用before，after实现加载动画按钮</h3><p>总所周知，before，after这两个伪元素在css中可谓是非常强大，今天利用before，after实现一个加载动画的按钮</p>
-<p>实现思路：利用将before设置背景渐变效果，利用after将中间盖住，再使用动画进行旋转加载加载效果。</p>
-    
-    <a class="article-more-a" href="/2020/02/17/before%EF%BC%8Cafter%E7%9A%84%E5%B0%8F%E5%A6%99%E7%94%A8%EF%BC%881%EF%BC%89/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/17/before%EF%BC%8Cafter%E7%9A%84%E5%B0%8F%E5%A6%99%E7%94%A8%EF%BC%881%EF%BC%89/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1252,6 +1298,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
             
             <div class="clearfix"></div>
